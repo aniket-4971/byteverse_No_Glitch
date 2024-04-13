@@ -1,0 +1,54 @@
+/* TirangaAnimation.css */
+
+.m-2 {
+    margin: 0.5rem;
+  }
+  
+  .d-inline-block {
+    display: inline-block;
+  }
+  
+  .align-top {
+    vertical-align: top;
+  }
+  
+  .mr-2 {
+    margin-right: 0.5rem;
+  }
+  
+
+  /* TirangaAnimation.css */
+
+.m-2 {
+    margin: 0.5rem;
+  }
+  
+  .text-warning {
+    color: #f39c12; /* Setting text color to warning color */
+    transition: color 0.3s ease; /* Smooth transition for color change */
+  }
+  
+  .hover-overlay {
+    position: relative;
+    cursor: pointer; /* Change cursor to pointer on hover */
+  }
+  
+  .hover-overlay::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0); /* Transparent background */
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+  }
+  
+  .hover-overlay:hover::before {
+    background-color: rgba(0, 0, 0, 0.1); /* Semi-transparent background on hover */
+  }
+  
+  .hover-overlay:hover .text-warning {
+    color: #e74c3c; /* Changing text color on hover */
+  }
+  
