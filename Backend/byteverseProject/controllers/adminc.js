@@ -20,7 +20,7 @@ const { registeruser } = require('./userc');
     }
 };
  const registeradmin=async(req,res)=>{
-    const{name,AadharNo,country,Address,city,pincode,phonenumber,password,judgeid}=req.body;
+    const{name,AadharNo,country,address,cityname,pincode,phonenumber,password,judgeid}=req.body;
     // const admin=require("./model/asAdmin");
     try {
         const admin=await admins.findOne({AadharNo:AadharNo});
@@ -31,8 +31,8 @@ const { registeruser } = require('./userc');
             name:name,
             AadharNo:AadharNo,
             country:country,
-            Address:Address,
-            city:city,
+            Address:address,
+            city:cityname,
             pincode:pincode,
             phonenumber:phonenumber,
             password:password,
@@ -49,9 +49,9 @@ const { registeruser } = require('./userc');
 };
 
 const login=async (req,res,next)=>{
-    const {AadharNo,judgeid,password}=req.body;
+    const {AadharNo,password}=req.body;
     console.log(req.body);
-    if (!AadharNo || !password||!judgeid) {
+    if (!AadharNo || !password) {
         res.status(422).json({ error: "fill all the details" })
     }
     try{
