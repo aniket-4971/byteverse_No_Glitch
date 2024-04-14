@@ -11,16 +11,16 @@ import "./App.css";
 // import HomeGrid from "./Components/HomeGrid";
 // import Upper_Navbar from "./Components/Upper_Navbar";
 // import Div_Guidelines from "./Components/Div_Guidelines";
-// import Profile from "./Page2/Profile";
-//import LoginForm from "./Login/LoginForm";
+
+import LoginForm from "./Login/LoginForm";
 import SignUpChoice from "./SignUp/SignUpChoice";
 import Home from "./Components/Home";
 import JudgeProfile from "./SignUp/JudgeProfile";
 import ClientProfile from "./SignUp/ClientProfile";
 import PoliceProfile from "./SignUp/PoliceProfile";
-//import Judge_Profile from "./JudgeProfileFolder/Judge_Profile";
-//import Client_Profile from "./Page2/Profile";
-//import Police_Profile from "./Police/Police_Profile";
+import Judge_Profile from "./JudgeProfileFolder/Judge_Profile";
+import Client_Profile from "./Page2/Profile";
+import Police_Profile from "./Police/Police_Profile";
 function App() {
   return (
     <>
@@ -30,13 +30,13 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/signupChoice" element={<SignUpChoice/>} />
            <Route path="/signup" element={<SignUpChoice />} />
-          {/* <Route path="/login" element={<LoginForm />} /> */}
+           <Route path="/login" element={<LoginForm />} />
           <Route path="/signupJudge" element={<JudgeProfile />} />
           <Route path="/signupClient" element={<ClientProfile />} />
           <Route path="/signupPolice" element={<PoliceProfile />} />
-          {/* <Route path="/loginJudge" element={<Judge_Profile />} />
+           <Route path="/loginJudge" element={<Judge_Profile />} />
           <Route path="/loginClient" element={<Client_Profile />} />
-          <Route path="/loginPolice" element={<Police_Profile />} />  */}
+          <Route path="/loginPolice" element={<Police_Profile />} />  
         </Routes>
       </BrowserRouter>
 

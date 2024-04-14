@@ -15,7 +15,7 @@ const {sendCookiepolice} = require("../utils/feature");
     }
 };
  const registerpolice=async(req,res)=>{
-    const{name,AadharNo,country,Address,city,pincode,phonenumber,password,policeid}=req.body;
+    const{name,AadharNo,country,address,cityname,pincode,phonenumber,password,policeid}=req.body;
     // console.log(req.body);
     // const admin=require("./model/asAdmin");
     try {
@@ -27,8 +27,8 @@ const finalpolice=await polices({
             name:name,
             AadharNo:AadharNo,
             country:country,
-            Address:Address,
-            city:city,
+            Address:address,
+            city:cityname,
             pincode:pincode,
             phonenumber:phonenumber,
             password:password,
@@ -45,9 +45,9 @@ const finalpolice=await polices({
     }
 };
 const login=async (req,res,next)=>{
-    const {AadharNo,policeid,password}=req.body;
+    const {AadharNo,password}=req.body;
     console.log(req.body);
-    if (!AadharNo || !password||!policeid) {
+    if (!AadharNo || !password) {
         res.status(422).json({ error: "fill all the details" })
     }
     try{
