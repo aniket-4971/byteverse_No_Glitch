@@ -114,23 +114,24 @@ function LoginForm() {
                 <form onSubmit={handleSubmit} className="form-group">
                   <div className="row">
                     <input
-                      type="text"
+                      type="email"
                       name="aadharNo"
-                      id="aadharNo"
+                      id="email"
                       className="form__input"
-                      placeholder="Aadhar Card"
+                      placeholder="Email Id"
                       value={aadharnumber}
                       onChange={handleAadharnumber}
                       required
                     />
+                    <button type="submit" id="otp-btn" onclick="sendotp()">Verify</button>
                   </div>
                   <div className="row">
                     <input
-                      type="password"
+                      type="number"
                       name="password"
-                      id="password"
+                      id="otp_in"
                       className="form__input"
-                      placeholder="Password"
+                      placeholder="Otp"
                       value={password}
                       onChange={handlePasswordChange}
                       required
@@ -162,7 +163,7 @@ function LoginForm() {
                     <label htmlFor="remember_me">Remember Me!</label>
                   </div>
                   <div className="row">
-                    <input type="submit" value="Submit" className="btnLogin" />
+                    <input type="submit" value="Submit" className="btnLogin" id="otp_btn" />
                   </div>
                 </form>
               </div>
@@ -176,6 +177,36 @@ function LoginForm() {
         </div>
       </div>
       <Footer></Footer>
+      <script>
+        function sendotp(){
+          const email=document.getElementById('email');
+          const otpverify = document.getElementByClassName('form__input')[0];
+          let otp=Math.floor(Math.random*100000)
+          let emailbody='<h2>Your otp is </h2>${otp}';
+          Email.send({
+    SecureToken : "146d2171-34ec-46d4-b97a-1047fd60705d",
+    To : email.value,
+    From : "rishikesh10808@gmail.com",
+    Subject : "Warrent_buddy otp",
+    Body : "Your OTP is "+otp,
+}).then(
+  message => {
+    if(message==="OK"){
+      alert("OTP sended");
+      otpverify.style.display="flex";
+      const otp_in=document.getElementById('otp_in');
+      const otp_btn=document.getElementById('otp_btn');
+      otp_btn.addEventListner('Click',()=>{
+      if (otp_in.value == otp){
+      alert("Email verified");}
+      else{
+      alert("Invalid OTP");}
+      })
+      }
+    }
+);
+        }
+      </script>
     </>
   );
 }
